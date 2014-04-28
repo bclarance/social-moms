@@ -1,5 +1,7 @@
 package org.socialmoms.init;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.WebApplicationContext;
@@ -17,6 +19,8 @@ import javax.servlet.ServletRegistration;
  */
 public class AppInitializer implements WebApplicationInitializer {
 
+    private static Logger logger = LoggerFactory.getLogger(AppInitializer.class);
+
     private static final String CONFIG_LOCATION = "org.socialmoms.config";
     private static final String MAPPING_URL = "/*";
 
@@ -25,11 +29,12 @@ public class AppInitializer implements WebApplicationInitializer {
         WebApplicationContext context = getContext();
         servletContext.addListener(new ContextLoaderListener(context));
         ServletRegistration.Dynamic dispatcher = servletContext.addServlet("DispatcherServlet", new DispatcherServlet(context));
+
         dispatcher.setLoadOnStartup(1);
         dispatcher.addMapping(MAPPING_URL);
     }
 
-    private AnnotationConfigWebApplicationContext getContext() {
+    private WebApplicationContext getContext() {
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
         context.setConfigLocation(CONFIG_LOCATION);
         return context;

@@ -19,17 +19,29 @@
 	</properties>
 
 	<dependencies>
-		<!-- Spring core & mvc -->
+		<!-- Spring core & mvc exclude commons logging -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 			<version>${spring.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -37,6 +49,12 @@
 			<version>${spring.version}</version>
 			<type>jar</type>
 			<scope>compile</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
 		</dependency>
 
 		<dependency>
@@ -45,6 +63,12 @@
 			<version>${spring.version}</version>
 			<type>jar</type>
 			<scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+            </exclusions>
 		</dependency>
 
 		<!-- Servlet Spec -->
@@ -53,7 +77,32 @@
             <artifactId>javax.servlet-api</artifactId>
             <version>3.0.1</version>
         </dependency>
-	</dependencies>
+
+        <!-- logging -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>1.7.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.7</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+
+
+
+    </dependencies>
 
 	<repositories>
 		<repository>
@@ -62,6 +111,8 @@
 			<url>https://oss.sonatype.org/content/repositories/springsource-milestones</url>
 		</repository>
 	</repositories>
+
+
 
 	<build>
 		<finalName>social-moms</finalName>
