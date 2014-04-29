@@ -4,7 +4,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Created by: Bilal Clarance, bclarance@apple.com
+ * Created by: Bilal Clarance, bclarance@gmail.com
  * On: 4/27/14 4:38 PM
  * social-moms
  */

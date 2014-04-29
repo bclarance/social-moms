@@ -13,7 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
 /**
- * Created by: Bilal Clarance, bclarance@apple.com
+ * Created by: Bilal Clarance, bclarance@gmail.com
  * On: 4/27/14 4:31 PM
  * social-moms
  */
