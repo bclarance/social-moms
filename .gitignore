@@ -3,7 +3,7 @@
 target/
 *.iml
 *.iws
-*.log
+*.log*
 
 # Mac
 .DS_Store
